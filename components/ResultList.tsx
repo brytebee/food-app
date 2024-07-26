@@ -1,4 +1,5 @@
 import {FlatList, StyleSheet, Text, View} from 'react-native';
+import ResultDetail from './ResultDetail';
 
 interface ResultListProps {
   title: string;
@@ -15,7 +16,7 @@ export default function ResultList({title, results}: ResultListProps) {
         keyExtractor={results => results.id}
         renderItem={({item}) => (
           <View>
-            <Text>{item.name}</Text>
+            <ResultDetail data={item} />
           </View>
         )}
       />
