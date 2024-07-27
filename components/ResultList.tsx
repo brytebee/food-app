@@ -8,10 +8,11 @@ interface ResultListProps {
 
 export default function ResultList({title, results}: ResultListProps) {
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       <FlatList
         data={results}
+        showsHorizontalScrollIndicator={false}
         horizontal
         keyExtractor={results => results.id}
         renderItem={({item}) => (
@@ -28,5 +29,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: 'bold',
+    marginLeft: 10,
+    marginBottom: 5,
+  },
+  container: {
+    marginBottom: 10,
   },
 });
