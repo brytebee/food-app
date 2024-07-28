@@ -13,7 +13,7 @@ export default function SearchScreen() {
   };
 
   return (
-    <View style={{flex: 1}}>
+    <>
       <SearchBar
         term={term}
         onTermChange={setTerm}
@@ -22,12 +22,11 @@ export default function SearchScreen() {
       />
       {/* @ts-ignore */}
       {errMessage ? <Text>{errMessage}</Text> : null}
-      <Text>We found {results.length} results.</Text>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <ResultList results={filterResultByPrice('$')} title="Cost Effective" />
         <ResultList results={filterResultByPrice('$$')} title="Bit Pricier" />
         <ResultList results={filterResultByPrice('$$$')} title="Big Spender" />
       </ScrollView>
-    </View>
+    </>
   );
 }

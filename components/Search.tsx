@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginTop: 10,
     flexDirection: 'row',
+    marginBottom: 10,
   },
   icon: {
     alignSelf: 'center',
