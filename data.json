@@ -1,0 +1,55 @@
+{
+  "alias": "mcdonalds-santa-clara-12",
+  "attributes": {
+    "menu_url": "https://www.mcdonalds.com/us/en-us/full-menu.html?cid=PS:GCM_MOP:NB::Yelp:All"
+  },
+  "categories": [
+    {
+      "alias": "burgers",
+      "title": "Burgers"
+    },
+    {
+      "alias": "hotdogs",
+      "title": "Fast Food"
+    },
+    {
+      "alias": "coffee",
+      "title": "Coffee & Tea"
+    }
+  ],
+  "coordinates": {
+    "latitude": 37.3818167699111,
+    "longitude": -121.978899082333
+  },
+  "display_phone": "(408) 727-9726",
+  "hours": [
+    {
+      "hours_type": "REGULAR",
+      "is_open_now": true,
+      "open": []
+    }
+  ],
+  "id": "QjISg1yoC-NAgtK_FIMynA",
+  "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/LF_Ch9Iq8pQZOgJmMbsW1Q/o.jpg",
+  "is_claimed": true,
+  "is_closed": false,
+  "location": {
+    "address1": "2850 Augustine Dr",
+    "address2": "",
+    "address3": "",
+    "city": "Santa Clara",
+    "country": "US",
+    "cross_streets": "",
+    "display_address": ["2850 Augustine Dr", "Santa Clara, CA 95054"],
+    "state": "CA",
+    "zip_code": "95054"
+  },
+  "name": "McDonald's",
+  "phone": "+14087279726",
+  "photos": [],
+  "price": "$$",
+  "rating": 2,
+  "review_count": 270,
+  "transactions": ["delivery"],
+  "url": "https://www.yelp.com/biz/mcdonalds-santa-clara-12?adjust_creative=tmHjqpT24qOobnl5OhJrrA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=tmHjqpT24qOobnl5OhJrrA"
+}
