@@ -1,11 +1,16 @@
-import {View, Text, ScrollView} from 'react-native';
+// screens/SearchScreen.tsx
+import React, {useState} from 'react';
+import {ScrollView, Text} from 'react-native';
 import SearchBar from '../components/Search';
-import {useState} from 'react';
 import useResults from '../hooks/useResults';
 import ResultList from '../components/ResultList';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../types';
 
-export default function SearchScreen() {
-  const [term, setTerm] = useState('');
+type Props = NativeStackScreenProps<RootStackParamList, 'Search'>;
+
+const SearchScreen: React.FC<Props> = () => {
+  const [term, setTerm] = useState<string>('');
   const [searchApi, errMessage, results] = useResults();
 
   const filterResultByPrice = (price: string) => {
@@ -17,10 +22,8 @@ export default function SearchScreen() {
       <SearchBar
         term={term}
         onTermChange={setTerm}
-        // @ts-ignore
         onTermSubmit={() => searchApi(term)}
       />
-      {/* @ts-ignore */}
       {errMessage ? <Text>{errMessage}</Text> : null}
       <ScrollView showsVerticalScrollIndicator={false}>
         <ResultList results={filterResultByPrice('$')} title="Cost Effective" />
@@ -29,4 +32,6 @@ export default function SearchScreen() {
       </ScrollView>
     </>
   );
-}
+};
+
+export default SearchScreen;

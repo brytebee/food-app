@@ -1,12 +1,19 @@
-import {FlatList, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import ResultDetail from './ResultDetail';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../types';
+import {useNavigation} from '@react-navigation/native';
 
-interface ResultListProps {
+type ResultListProps = {
   title: string;
-  results: any;
-}
+  results: Array<{id: string; [key: string]: any}>;
+};
 
-export default function ResultList({title, results}: ResultListProps) {
+const ResultList: React.FC<ResultListProps> = ({title, results}) => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList, 'Search'>>();
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
@@ -14,16 +21,19 @@ export default function ResultList({title, results}: ResultListProps) {
         data={results}
         showsHorizontalScrollIndicator={false}
         horizontal
-        keyExtractor={results => results.id}
+        keyExtractor={result => result.id}
         renderItem={({item}) => (
-          <View>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate('ResultShow', {resultId: item.id})
+            }>
             <ResultDetail data={item} />
-          </View>
+          </TouchableOpacity>
         )}
       />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   title: {
@@ -36,3 +46,5 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 });
+
+export default ResultList;
