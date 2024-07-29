@@ -1,4 +1,4 @@
-import {Text, View, TextInput, StyleSheet} from 'react-native';
+import {View, TextInput, StyleSheet} from 'react-native';
 import Icons from 'react-native-vector-icons/FontAwesome';
 
 interface SearchBarProps {
@@ -29,8 +29,8 @@ export default function SearchBar({
 
 const styles = StyleSheet.create({
   backgroundStyle: {
-    // backgroundColor: '#f0eeee',
-    backgroundColor: '#f7ee',
+    backgroundColor: '#f0e5ee',
+    // backgroundColor: '#f7ee',
     height: 50,
     marginHorizontal: 10,
     borderRadius: 5,

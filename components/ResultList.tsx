@@ -15,23 +15,27 @@ const ResultList: React.FC<ResultListProps> = ({title, results}) => {
     useNavigation<NativeStackNavigationProp<RootStackParamList, 'Search'>>();
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
-      <FlatList
-        data={results}
-        showsHorizontalScrollIndicator={false}
-        horizontal
-        keyExtractor={result => result.id}
-        renderItem={({item}) => (
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate('ResultShow', {resultId: item.id})
-            }>
-            <ResultDetail data={item} />
-          </TouchableOpacity>
-        )}
-      />
-    </View>
+    <>
+      {results.length ? (
+        <View style={styles.container}>
+          <Text style={styles.title}>{title}</Text>
+          <FlatList
+            data={results}
+            showsHorizontalScrollIndicator={false}
+            horizontal
+            keyExtractor={result => result.id}
+            renderItem={({item}) => (
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('ResultShow', {resultId: item.id})
+                }>
+                <ResultDetail data={item} />
+              </TouchableOpacity>
+            )}
+          />
+        </View>
+      ) : null}
+    </>
   );
 };
 
